@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     //event open interface
     function getMessage(user1, user2) {
-        $.post(`http://localhost:3000/chat/getMessage`, { user1: user1, user2: user2 }, function (data) {
+        $.post(`https://chat-web-application-demo.herokuapp.com/chat/getMessage`, { user1: user1, user2: user2 }, function (data) {
             if (data.length > 0) {
                 data.forEach(element => {
                     if (element.id_user == user1) {
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
     //socketio
 
-    var socket = io("http://localhost:3000")
+    var socket = io("https://chat-web-application-demo.herokuapp.com")
 
     socket.on("connect", function () {
         var id = getCookie("id_user")
@@ -206,7 +206,7 @@ $(document).ready(function () {
     //logout
     $("#logout").click(function () {
         var id = $("#avatar-user").attr("data-id-user")
-        window.location.replace(`http://localhost:3000/logout/?id_user=${id}`);
+        window.location.replace(`https://chat-web-application-demo.herokuapp.com/logout/?id_user=${id}`);
     })
 
 })
