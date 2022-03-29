@@ -1,0 +1,153 @@
+<style>
+    a#send-btn:hover {
+        background-color: #b4dbfd;
+    }
+
+    .menu-second-active {
+        background-color: rgb(214, 219, 255);
+    }
+
+    #tool-bar div:hover {
+        background-color: rgb(233, 233, 233);
+    }
+</style>
+
+
+<div class="container-fluid p-0 d-flex">
+    <div class="d-flex boder min-vh-100" style="width: 20%;">
+        <div class="d-flex flex-column" style="width: 64px; background-color: #0B8CFA;">
+            <div class="col-12 d-flex justify-content-center" style="height:88px">
+                <div class="align-self-end" style="width: 48px; height: 48px;">
+                    <img src="{{avatar}}" class="img-fluid rounded-circle" id="avatar-user" data-id-user="{{id_user}}">
+                </div>
+            </div>
+            <ul id="menu-bar" class="p-0 m-0">
+                <li class="d-flex justify-content-center flex-fill btn" style="height: 64px;" id="message">
+                    <span class="btn material-icons text-white align-self-center">
+                        chat
+                    </span>
+                </li>
+                <li class="d-flex justify-content-center btn" style="height: 64px;" id="contacts">
+                    <span class="btn material-icons text-white align-self-center">
+                        contacts
+                    </span>
+                </li>
+            </ul>
+            <div class="d-flex flex-fill col-12">
+                <div class="align-self-end flex-fill d-flex justify-content-center" style="height: 64px;" id="logout">
+                    <span class="btn material-icons text-white align-self-center">
+                        logout
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="flex-fill border">
+            <div id="contact-detail" clas="">
+                <div id="friend-list-search" class="py-4 border-bottom">
+                    <div class="d-flex rounded-pill mx-4 border p-1 " style="background-color: #d3d3d3;">
+                        <span class="material-icons align-self-center ms-1" style="font-size: 20px;">
+                            search
+                        </span>
+                        <input type="text" placeholder="Tìm kiếm" class="flex-fill me-2 border-0"
+                            style="outline: none;background-color:#d3d3d3">
+                    </div>
+
+                </div>
+
+                <div id="friend-list">
+                    <ul class="p-0" id="friendList">
+                        <li class="btn px-3 py-3 border-bottom d-flex active" id="add-friend-list"
+                            style="background-color: rgb(214, 219, 255);">
+                            <img src="image/ds_ketban.png" alt="" style="width: 52px;height: 52px;">
+                            <span class="align-self-center ms-2">Danh sách kết bạn</span>
+
+                        </li>
+                        <div class="my-2 ms-3 ">
+                            <span>Bạn bè({{friend_amount}})</span>
+                        </div>
+                        {{#each friends}}
+                        <li class="d-flex py-2 px-3 btn" id="friend" data-id-friend="{{this.id_user}}">
+                            <img src="{{this.avatar}}" class="img-fluid rounded-circle"
+                                style="width: 48px; height: 48px;">
+                            <span class="align-self-center ms-2">{{this.name}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+
+            <div id="message-list" class="visually-hidden">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="show-info" class="position-relative overflow-hidden flex-fill">
+        <div id="chat-box" class="d-flex flex-column min-vh-100 visually-hidden">
+            <div class="p-2" id="top-bar">
+                <div class="d-flex align-self-end">
+                    <img src="" class="img-fluid rounded-circle" style="width: 48px; height: 48px;"
+                        id="chat-box-avatar">
+                    <span class="align-self-center ms-2" style="font-size: 18px;" id="chat-box-name"></span>
+                </div>
+            </div>
+            <div class="position-relative" style="background-color: #CECCD9; height: 796px;">
+                <div class="position-absolute bottom-0 end-0 w-100 overflow-auto" style="max-height: 796px;">
+                    <div class="d-flex flex-column" id="message-content" data-id-user-receive="">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div>
+                <div class="align-self-end" id="message-bar">
+                    <div class="border-bottom d-flex px-2" style="height: 46px;" id="tool-bar">
+                        <div class="align-self-center d-flex justify-content-center rounded btn"
+                            style="width: 40px;height: 40px;">
+                            <span class="material-icons-outlined align-self-center">
+                                emoji_emotions
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end border-bottom" style="height: 55px;">
+                        <input class="m-3 flex-fill border-0" placeholder="Nhập tin nhắn" style="outline: none;"
+                            id="message-input">
+                        <div class="d-flex " style="width: 150px;">
+                            <a class="btn align-self-center ms-2 text-primary" id="send-btn"><strong>GỬI</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="add-friend-list-detail" class="min-vh-100 d-flex flex-column">
+            <div class="p-2 border-bottom" id="top-bar">
+                <div class="align-self-end d-flex">
+                    <img src="image/ds_ketban.png" class="img-fluid rounded-circle" style="width: 48px; height: 48px;">
+                    <span class="align-self-center ms-2" style="font-size: 20px;">Danh sách kết bạn</span>
+                </div>
+            </div>
+            <div class="d-flex flex-fill flex-column justify-content-center">
+                <div class="align-self-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="image/ds-ketban-interface.png" style="width: 350px;height: 105px;">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <span>Bạn chưa có lời mời kết bạn nào</span>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary">Thêm bạn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

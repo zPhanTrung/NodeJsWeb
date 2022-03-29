@@ -1,0 +1,11 @@
+
+
+{
+    "Database": {
+      "dbConfig": {
+        "host": "localhost",
+        "port": 5984,
+        "dbName": "mongodb+srv://phantrung8298:AgPENC2fRkzLFec2@cluster0.imvtt.mongodb.net/?retryWrites=true&w=majority"
+      }
+    }
+  }
